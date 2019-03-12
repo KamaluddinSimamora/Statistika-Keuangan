@@ -1,0 +1,36 @@
+#Program untuk mencari nilai akumulasi
+nilaiakumulasi<-function(num,k,i,t,m=TRUE){
+  #satu:bunga tunggal
+  #dua:bunga majemuk
+  #tiga:bunga majemuk kontinu
+  #k:modal
+  #im:bunga (demisal)
+  #t:waktu(tahn)
+  #m: banyak bunga diberikan dalam 1 tahun
+  #j=im/m
+  switch(num,
+         satu={
+           At=k*(1+i*t)
+           cat("Nilai akumulasi bunga tunggal:",At)
+         },
+         dua={
+           At=k*(1+i/m)^(m*t)
+           cat("Nilai akumulasi bunga majemuk biasa/nominal:",At)
+         },
+         tiga={
+           At=k*exp(i*t)
+           cat("Nilai akumulasi bunga majemuk kontinu:",At)
+         })
+}
+
+#nilai akumulasi tahunan
+nilaiakumulasi(2,1,0.1,5)
+#nilai akumulasi setengah tahun
+nilaiakumulasi(2,1,0.1,5,m=2)
+#nilai akumulasi bulanan
+nilaiakumulasi(2,1,0.1,5,m=12)
+#nilai akumulasi harian
+nilaiakumulasi(2,1,0.1,5,m=365)
+#nilai akumulasi kontinu
+nilaiakumulasi(3,1,0.1,5)
+nilaiakumulasi(3,16.52989,0.6,3)
