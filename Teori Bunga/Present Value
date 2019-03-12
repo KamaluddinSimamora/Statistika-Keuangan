@@ -1,0 +1,25 @@
+#Program untuk mencari present value/nilai sekarang
+presentative <- function(num, At, i, t, m=TRUE){
+  switch (num,
+     satu={ PV=At/(1+i*t)
+     cat ("Nilai PV bunga tunggal : " ,PV) },
+     dua={ PV=At/(1+i/m)^(m*t)
+     cat ("Nilai PV bunga majemuk nominal :",PV)},
+     tiga={PV=At*exp(-i*t)
+     cat ("Nilai PV bunga majemuk kontinu  :",PV)}
+  )
+  }
+presentative(1,100,0.6,3)
+presentative(2,100,0.6,3)
+presentative(2,100,0.6,3,m=2)
+presentative(3,100,0.6,3)
+presentative(3,10000,0.06931472,20)
+presentative(3,10000,0.06931472,40)
+presentative(3,10000,0.06931472,60)
+
+keterangan :
+num : fungsi untuk pilihan
+At  : Modal awal
+i   : Suku Bunga
+t   : tahun
+m   : opsi untuk majemuk kontinu
