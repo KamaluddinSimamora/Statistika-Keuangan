@@ -1,0 +1,32 @@
+# Statistika-Keuangan
+bunga<-function(num,At,k,t, m=TRUE){
+  #num=pilihan, 1: bunga tunggal
+  #             2: bunga majemuk nominal
+  #             3: bunga majemuk kontinu
+  #At=nilai akumulasi
+  #t=tahun
+  switch(num,
+         satu={
+           bunga=(At/k-1)/t
+         },
+         dua={
+           bunga=m*((At/k)^(1/(m*t))-1)
+         },
+         tiga={
+           bunga=log(At/k)/t
+         })
+  return(bunga)}
+  
+  #soal#
+A=200
+k=150
+t=5
+#bunga tunggal
+bunga(1,200,150,5)
+#bunga majemuk biasa
+bunga(2,200,150,5)
+#bunga majemuk nominal
+bunga(2,200,150,5,m=2)
+#bunga kontinu
+bunga(3,200,150,5)
+bunga(3,4000,500,30)
